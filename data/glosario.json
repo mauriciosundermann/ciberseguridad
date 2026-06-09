@@ -1,0 +1,28 @@
+{
+  "terminos": [
+    {
+      "nombre": "Phishing",
+      "definicion": "Intento de engaño para obtener información personal."
+    },
+    {
+      "nombre": "Malware",
+      "definicion": "Software diseñado para dañar o comprometer sistemas."
+    },
+    {
+      "nombre": "Malware1",
+      "definicion": "Software diseñado para dañar o comprometer sistemas."
+    },
+    {
+      "nombre": "Malware2",
+      "definicion": "Software diseñado para dañar o comprometer sistemas."
+    },
+    {
+      "nombre": "Malware3",
+      "definicion": "Software diseñado para dañar o comprometer sistemas."
+    },
+    {
+      "nombre": "Malware4",
+      "definicion": "Software diseñado para dañar o comprometer sistemas."
+    }
+  ]
+}

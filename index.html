@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ciberseguridad para Todos</title>
+    <link rel="stylesheet" href="css/styles.css?v=2">
+</head>
+<body>
+
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <a class="brand" href="/">CiberSegura</a>
+            <button class="menu-close" aria-label="Cerrar menú">×</button>
+        </div>
+        <nav class="sidebar-nav" id="main-nav">
+            <a class="sidebar-link" href="#inicio">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l9-9 9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z" fill="currentColor"/></svg>
+                <span>Inicio</span>
+            </a>
+            <a class="sidebar-link" href="#modulos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v6H4V5Zm0 8h7v6H4v-6Zm9 0h7v6h-7v-6Z" fill="currentColor"/></svg>
+                <span>Módulos</span>
+            </a>
+            <a class="sidebar-link" href="#actividades">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v2H4V5Zm0 6h16v2H4v-2Zm0 6h10v2H4v-2Z" fill="currentColor"/></svg>
+                <span>Actividades</span>
+            </a>
+            <a class="sidebar-link" href="#recursos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a1 1 0 0 1 1 1v14l-4-4H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2 3v2h10V7H7Zm0 4v2h6v-2H7Z" fill="currentColor"/></svg>
+                <span>Recursos</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <small>Dashboard de seguridad con datos dinámicos.</small>
+        </div>
+    </aside>
+
+    <div class="main-panel">
+        <header class="site-header">
+            <div class="container header-grid">
+                <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="header-title">Panel de Seguridad</div>
+            </div>
+        </header>
+
+        <div id="data-warning" class="data-warning" hidden>
+            Para cargar los datos JSON correctamente, sirve el sitio con un servidor local (por ejemplo, <code>python3 -m http.server 8000</code>). Si abres el archivo directamente, algunos navegadores bloquean la lectura de JSON locales.
+        </div>
+
+        <main>
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <h2 id="hero-title"></h2>
+                    <p id="hero-desc"></p>
+                    <a class="btn primary" id="hero-cta" href="#"></a>
+                </div>
+                <div class="hero-visual" aria-label="Ilustración de ciberseguridad">
+                    <div class="hero-image-frame">
+                        <img id="hero-image-main" src="" alt="Ilustración de ciberseguridad" />
+                    </div>
+                    <aside id="hero-image-sidebar" class="hero-image-sidebar" aria-label="Selector de imágenes" hidden></aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modulos" class="container modules-section">
+        <h3>Módulos</h3>
+        <div id="modulos-list" class="cards" aria-live="polite"></div>
+    </section>
+
+    <section id="amenazas" class="cards-section container">
+        <h3>Tipos de Amenazas</h3>
+        <div class="cards" id="amenazas-list"></div>
+    </section>
+
+    <section id="practicas" class="container practices">
+        <h3>Buenas Prácticas</h3>
+        <ul id="practicas-list"></ul>
+    </section>
+
+    <section id="actividades" class="container activities">
+        <h3>Actividades</h3>
+        <div id="actividades-list" class="cards"></div>
+    </section>
+
+    <section id="recursos" class="container resources">
+        <div class="two-col">
+            <div>
+                <h3>Fuentes</h3>
+                <ul id="fuentes-list" class="resources-list"></ul>
+            </div>
+            <div>
+                <h3>Noticias</h3>
+                <div id="noticias-list" class="news-list"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p id="footer-copyright"></p>
+        <small id="footer-note"></small>
+    </div>
+</footer>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>

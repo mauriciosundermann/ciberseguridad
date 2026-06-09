@@ -1,0 +1,32 @@
+{
+  "actividades": [
+    {
+      "id": "ACT001",
+      "modulo_id": 1,
+      "tipo": "crucigrama",
+      "titulo": "Conceptos de Contraseñas",
+      "palabras": [
+        "PASSWORD",
+        "SEGURIDAD",
+        "CLAVE",
+        "AUTENTICACION"
+      ]
+    },
+    {
+      "id": "ACT002",
+      "modulo_id": 1,
+      "tipo": "quiz",
+      "titulo": "Evaluación rápida",
+      "preguntas": [
+        {
+          "pregunta": "¿Debe reutilizarse la misma contraseña?",
+          "opciones": [
+            "Sí",
+            "No"
+          ],
+          "respuesta": "No"
+        }
+      ]
+    }
+  ]
+}

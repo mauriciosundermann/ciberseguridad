@@ -1,0 +1,20 @@
+{
+  "modulos": [
+    {
+      "id": 1,
+      "titulo": "Contraseñas Seguras",
+      "descripcion": "Aprende a crear y administrar contraseñas robustas.",
+      "nivel": "basico",
+      "texto_principal": "Las contraseñas son la primera barrera de protección de nuestras cuentas digitales.",
+      "palabras_clave": [
+        "contraseña",
+        "autenticacion",
+        "seguridad"
+      ],
+      "fuentes": [
+        "FU001",
+        "FU002"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "noticias": [
+    {
+      "id": "NOT001",
+      "titulo": "Nueva campaña de phishing detectada",
+      "fecha": "2026-06-09",
+      "resumen": "Se detectaron correos falsos simulando entidades bancarias.",
+      "categoria": "phishing"
+    },
+    {
+      "id": "NOT002",
+      "titulo": "Ransomware ataca hospitales",
+      "fecha": "2021-06-09",
+      "resumen": "Un ataque de ransomware afectó a varios hospitales.",
+      "categoria": "ransomware"
+    }
+  ]
+}

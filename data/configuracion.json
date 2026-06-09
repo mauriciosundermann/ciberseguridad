@@ -1,0 +1,58 @@
+{
+  "sitio": {
+    "nombre": "CiberSeguro",
+    "version": "1.0.0",
+    "idioma": "es",
+    "tema": "claro",
+    "hero": {
+      "titulo": "Protegé tu información digital",
+      "descripcion": "Vivimos conectados a internet gran parte del día: utilizamos redes sociales, realizamos compras en línea, accedemos a servicios bancarios, estudiamos y trabajamos desde dispositivos digitales. Sin embargo, muchas amenazas informáticas aprovechan el desconocimiento de los usuarios para robar información, acceder a cuentas personales o comprometer dispositivos. En esta plataforma aprenderás, de manera simple y práctica, cómo identificar correos electrónicos fraudulentos, mensajes engañosos, intentos de phishing, estafas en redes sociales, aplicaciones maliciosas y otras amenazas digitales que afectan diariamente a millones de personas. A través de ejemplos reales, actividades interactivas y material educativo actualizado, desarrollarás habilidades para: Reconocer correos electrónicos falsos y enlaces sospechosos. Identificar intentos de robo de contraseñas y datos personales. Navegar de forma segura por internet. Proteger tus dispositivos frente a malware y ransomware. Crear contraseñas seguras y administrar tus credenciales correctamente. Detectar señales de fraude en redes sociales y aplicaciones de mensajería. Comprender los riesgos digitales más comunes y cómo prevenirlos. La ciberseguridad no es un conocimiento exclusivo para especialistas. Cualquier persona puede aprender hábitos seguros que reduzcan significativamente el riesgo de sufrir ataques informáticos. Adquirí las herramientas necesarias para proteger tu identidad digital, resguardar tu información personal y utilizar la tecnología con mayor confianza y seguridad en tu vida diaria. Tu seguridad digital comienza con el conocimiento. Aprendé a reconocer las amenazas antes de que se conviertan en un problema.",
+      "cta_texto": "Comenzar",
+      "cta_destino": "#practicas",
+      "imagenes": [
+        "https://images.pexels.com/photos/276252/pexels-photo-276252.jpeg",
+        "https://images.pexels.com/photos/36740854/pexels-photo-36740854.jpeg",
+        "https://images.pexels.com/photos/31177056/pexels-photo-31177056.jpeg",
+        "https://images.pexels.com/photos/5474023/pexels-photo-5474023.jpeg",
+        "https://images.pexels.com/photos/12902862/pexels-photo-12902862.jpeg",
+        "https://images.pexels.com/photos/33454829/pexels-photo-33454829.jpeg"
+      ]
+    },
+    "practicas": [
+      "Usá autenticación de multifactores factores (MFA).",
+      "Mantené tu software actualizado.",
+      "No compartas contraseñas ni claves."
+    ],
+    "amenazas": [
+      {
+        "id": "phishing",
+        "titulo": "Phishing",
+        "descripcion": "Correos falsos que buscan robar datos. Utilizando el desconocimiento de técnicas para ocultar en enlaces o direcciones web formularios o destinos maliciosos."
+      },
+      {
+        "id": "ransomware",
+        "titulo": "Ransomware",
+        "descripcion": "Secuestro de archivos mediante cifrado y pedido de rescate."
+      },
+      {
+        "id": "contrasenas",
+        "titulo": "Contraseñas",
+        "descripcion": "Las contraseñas seguras cuentan con caracteres especiales y alfanúmericos. Además de actualizarse periódicamente y no ser compartidas entre diferentes servicios."
+      }
+    ],
+    "consejos": {
+      "phishing": "Cuidado con links sospechosos.",
+      "ransomware": "Hacé backups regulares.",
+      "contrasenas": "Usá gestor de contraseñas únicas y seguras."
+    },
+    "footer": {
+      "copyright": "© 2026 Ciberseguridad para Todos",
+      "nota": "Hecho con cariño para enseñar buenas prácticas digitales."
+    }
+  },
+  "gamificacion": {
+    "habilitada": true,
+    "puntos_por_quiz": 10,
+    "puntos_por_crucigrama": 20
+  }
+}
