@@ -10,12 +10,12 @@
       "cta_texto": "Comenzar",
       "cta_destino": "#practicas",
       "imagenes": [
-        "https://images.pexels.com/photos/276252/pexels-photo-276252.jpeg",
-        "https://images.pexels.com/photos/36740854/pexels-photo-36740854.jpeg",
-        "https://images.pexels.com/photos/31177056/pexels-photo-31177056.jpeg",
-        "https://images.pexels.com/photos/5474023/pexels-photo-5474023.jpeg",
-        "https://images.pexels.com/photos/12902862/pexels-photo-12902862.jpeg",
-        "https://images.pexels.com/photos/33454829/pexels-photo-33454829.jpeg"
+        "./img/cs1.webp",
+        "./img/cs2.webp",
+        "./img/cs3.webp",
+        "./img/cs4.webp",
+        "./img/cs5.webp",
+        "./img/cs6.webp"
       ]
     },
     "practicas": [

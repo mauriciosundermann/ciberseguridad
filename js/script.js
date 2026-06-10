@@ -216,23 +216,40 @@ function renderHeroImages(images){
         sidebar.hidden = true;
     }
 
+    const startRotation = () => {
+        if(siteData.heroRotationTimer){
+            clearInterval(siteData.heroRotationTimer);
+        }
+        if(normalized.length < 2) return;
+        siteData.heroRotationTimer = setInterval(() => {
+            const nextIndex = (activeIndex + 1) % normalized.length;
+            updateActive(nextIndex);
+        }, 4500);
+    };
+
     sidebar.querySelectorAll('.hero-thumb').forEach(button => {
         button.addEventListener('click', () => {
             const index = Number(button.dataset.index);
             updateActive(index);
+            startRotation();
         });
     });
 
     updateActive(0);
+    startRotation();
 }
 
 function renderAmenazas(items){
     const container = document.getElementById('amenazas-list');
     if(!container) return;
     container.innerHTML = items.length ? items.map(it=>{
+        const icon = renderIcon(getIconForThreat(it.id || it.titulo));
         return `
             <article class="card" data-type="${escapeAttr(it.id)}">
-                <h4>${escapeHtml(it.titulo)}</h4>
+                <div class="card-head">
+                    ${icon}
+                    <h4>${escapeHtml(it.titulo)}</h4>
+                </div>
                 <p>${escapeHtml(it.descripcion || '')}</p>
             </article>
         `;
@@ -254,13 +271,73 @@ function renderFooter(footer){
     if(n) n.textContent = footer.nota || '';
 }
 
+function getSvgIcon(name){
+    const icons = {
+        shieldCheck: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 5 7v5c0 5 5 8 7 8s7-3 7-8V7l-7-3z"/><path d="m9.5 12.5 2 2 4-4"/></svg>',
+        lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="11" width="12" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+        key: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2 11 12"/><circle cx="7" cy="17" r="3"/><path d="M8 17h3"/><path d="M11 17h2"/></svg>',
+        bug: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7c0-2.2 1.8-4 4-4s4 1.8 4 4"/><path d="M12 13v8"/><path d="M5 11h14"/><path d="M7 16c1.5-1.5 3-2 5-2s3.5.5 5 2"/><path d="M4 7l3 3m13-3-3 3"/></svg>',
+        book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12a2 2 0 0 1 2 2v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6a2 2 0 0 1 2-2Z"/><path d="M6 8h12"/><path d="M9 15h6"/><path d="M9 19h6"/></svg>',
+        link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 1 0-5.66l1.77-1.77a4 4 0 0 1 5.66 0 4 4 0 0 1 0 5.66l-1.77 1.77"/><path d="M14 10a4 4 0 0 1 0 5.66l-1.77 1.77a4 4 0 0 1-5.66 0 4 4 0 0 1 0-5.66l1.77-1.77"/></svg>',
+        newspaper: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M8 9h8"/><path d="M8 13h5"/><path d="M8 17h4"/><path d="M16 5v14"/></svg>',
+        globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M4 12h16"/><path d="M12 4a15 15 0 0 1 0 16"/><path d="M12 4a15 15 0 0 0 0 16"/></svg>',
+        spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/><path d="m4.5 4.5 15 15"/><path d="m19.5 4.5-15 15"/></svg>',
+        module: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 4v16"/></svg>',
+        quiz: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8"/><path d="M8 13h5"/><path d="M8 17h6"/></svg>',
+        activity: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="M5 5l14 14"/></svg>',
+        default: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg>'
+    };
+    return icons[name] || icons.default;
+}
+
+function renderIcon(name){
+    return `<span class="content-icon" aria-hidden="true">${getSvgIcon(name)}</span>`;
+}
+
+function getIconForModule(item){
+    const title = (item.titulo || item.id || '').toLowerCase();
+    if(title.includes('phishing') || title.includes('correo')) return 'shieldCheck';
+    if(title.includes('ransomware') || title.includes('malware')) return 'lock';
+    if(title.includes('contraseña') || title.includes('clave')) return 'key';
+    if(title.includes('seguridad') || title.includes('datos')) return 'shieldCheck';
+    return 'module';
+}
+
+function getIconForActivity(type){
+    const key = String(type || '').toLowerCase();
+    if(key.includes('quiz') || key.includes('cuestionario')) return 'quiz';
+    if(key.includes('crucigrama') || key.includes('juego')) return 'activity';
+    if(key.includes('prueba') || key.includes('reto')) return 'spark';
+    return 'activity';
+}
+
+function getIconForThreat(id){
+    const key = String(id || '').toLowerCase();
+    if(key.includes('phishing')) return 'shieldCheck';
+    if(key.includes('ransomware')) return 'lock';
+    if(key.includes('contrasena') || key.includes('claves')) return 'key';
+    return 'default';
+}
+
+function getIconForNews(){
+    return 'newspaper';
+}
+
+function getIconForResource(){
+    return 'link';
+}
+
 function renderModulos(items){
     const container = document.getElementById('modulos-list');
     if(!container) return;
     container.innerHTML = items.length ? items.map(item=>{
+        const icon = renderIcon(getIconForModule(item));
         return `
             <article class="card">
-                <h4>${escapeHtml(item.titulo)}</h4>
+                <div class="card-head">
+                    ${icon}
+                    <h4>${escapeHtml(item.titulo)}</h4>
+                </div>
                 <p>${escapeHtml(item.descripcion || item.texto_principal || '')}</p>
                 <div class="tag-row">${(item.palabras_clave || []).map(k=>`<span class="tag">${escapeHtml(k)}</span>`).join('')}</div>
             </article>
@@ -277,9 +354,13 @@ function renderActividades(items){
         const details = [];
         if(Array.isArray(item.preguntas)) details.push(`${item.preguntas.length} pregunta(s)`);
         if(Array.isArray(item.palabras)) details.push(`Palabras: ${escapeHtml(item.palabras.join(', '))}`);
+        const icon = renderIcon(getIconForActivity(item.tipo || item.id));
         return `
             <article class="card" data-type="${escapeAttr(item.tipo || '')}">
-                <h4>${escapeHtml(item.titulo || item.id)}</h4>
+                <div class="card-head">
+                    ${icon}
+                    <h4>${escapeHtml(item.titulo || item.id)}</h4>
+                </div>
                 ${meta}
                 ${details.length ? `<p>${details.join(' · ')}</p>` : ''}
             </article>
@@ -293,7 +374,7 @@ function renderFuentes(items){
     const container = document.getElementById('fuentes-list');
     if(!container) return;
     container.innerHTML = items.length ? items.map(item=>{
-        return `<li><a href="${escapeAttr(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.nombre)} — ${escapeHtml(item.titulo)}</a></li>`;
+        return `<li><span class="resource-icon" aria-hidden="true">${getSvgIcon(getIconForResource())}</span><a href="${escapeAttr(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.nombre)} — ${escapeHtml(item.titulo)}</a></li>`;
     }).join('') : '<li>No hay fuentes disponibles.</li>';
 }
 
@@ -303,7 +384,10 @@ function renderNoticias(items){
     container.innerHTML = items.length ? items.map(item=>{
         return `
             <article class="news-item">
-                <strong>${escapeHtml(item.titulo)}</strong>
+                <div class="news-head">
+                    <span class="news-icon" aria-hidden="true">${getSvgIcon(getIconForNews())}</span>
+                    <strong>${escapeHtml(item.titulo)}</strong>
+                </div>
                 <div class="muted">${escapeHtml(item.fecha)}${item.categoria ? ` • ${escapeHtml(item.categoria)}` : ''}</div>
                 <p>${escapeHtml(item.resumen || '')}</p>
             </article>
