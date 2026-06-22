@@ -2,13 +2,6 @@
   "fuentes": [
     {
       "id": "FU001",
-      "nombre": "INCIBE",
-      "titulo": "Contraseñas seguras",
-      "url": "https://www.incibe.es",
-      "tipo": "articulo"
-    },
-    {
-      "id": "FU002",
       "nombre": "OWASP",
       "titulo": "Authentication Cheat Sheet",
       "url": "https://owasp.org",

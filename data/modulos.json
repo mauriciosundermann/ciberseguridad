@@ -7,9 +7,21 @@
       "nivel": "basico",
       "texto_principal": "Las contraseñas son la primera barrera de protección de nuestras cuentas digitales.",
       "palabras_clave": [
-        "contraseña",
-        "autenticacion",
-        "seguridad"
+        "autenticacion"
+      ],
+      "fuentes": [
+        "FU001",
+        "FU002"
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Alfabetización Digital",
+      "descripcion": "Aprende a navegar de manera segura y responsable en el entorno digital.",
+      "nivel": "basico",
+      "texto_principal": "La alfabetización digital es esencial para desenvolverse en la sociedad actual.",
+      "palabras_clave": [
+        "alfabetizacion"
       ],
       "fuentes": [
         "FU001",
