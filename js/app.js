@@ -106,9 +106,13 @@ class CiberSeguraApp {
    */
   closeMobileMenu() {
     const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.remove('active');
+
+    if (sidebar) {
+        sidebar.classList.remove('active');
+    }
+
     document.body.style.overflow = 'auto';
-  }
+}
 
   /**
    * Navega a una sección
@@ -155,7 +159,7 @@ class CiberSeguraApp {
     this.appContainer.innerHTML = '';
 
     // Crear dashboard
-    this.dashboard = new Dashboard('app');
+    this.dashboard = new Dashboard('main-content');
     this.dashboard.render();
   }
 
@@ -166,7 +170,7 @@ class CiberSeguraApp {
   startQuiz() {
     this.appContainer.innerHTML = '';
 
-    this.quizGame = new QuizGame('app', '/data/quiz.json');
+    this.quizGame = new QuizGame('main-content', 'data/quiz.json');
     this.quizGame.iniciar();
   }
 
@@ -177,7 +181,7 @@ class CiberSeguraApp {
   startPhishing() {
     this.appContainer.innerHTML = '';
 
-    this.phishingGame = new PhishingGame('app', '/data/phishing.json');
+    this.phishingGame = new PhishingGame('main-content', 'data/phishing.json');
     this.phishingGame.iniciar();
   }
 
@@ -188,7 +192,7 @@ class CiberSeguraApp {
   startCrossword() {
     this.appContainer.innerHTML = '';
 
-    this.crosswordGame = new CrosswordGame('app', '/data/crossword.json');
+    this.crosswordGame = new CrosswordGame('main-content', 'data/crossword.json');
     this.crosswordGame.iniciar();
   }
 

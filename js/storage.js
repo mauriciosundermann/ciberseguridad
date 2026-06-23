@@ -50,10 +50,16 @@ class StorageManager {
    * @constant {Array}
    */
   static LEVELS = [
-    { nivel: 1, nombre: 'Principiante', minPuntos: 0, maxPuntos: 100 },
-    { nivel: 2, nombre: 'Intermedio', minPuntos: 101, maxPuntos: 250 },
-    { nivel: 3, nombre: 'Avanzado', minPuntos: 251, maxPuntos: 500 },
-    { nivel: 4, nombre: 'Experto', minPuntos: 501, maxPuntos: Infinity }
+    { nivel: 1, nombre: 'Usuario Básico', minPuntos: 0, maxPuntos: 100 },
+    { nivel: 2, nombre: 'Navegante Seguro', minPuntos: 101, maxPuntos: 250 },
+ { nivel: 3, nombre: 'Protector Digital', minPuntos: 251, maxPuntos: 500 },
+ { nivel: 4, nombre: 'Analista Junior', minPuntos: 501, maxPuntos: 1000 },
+ { nivel: 5, nombre: 'Analista Senior', minPuntos: 1001, maxPuntos: 2000 },
+ { nivel: 6, nombre: 'Especialista', minPuntos: 2001, maxPuntos: 3500 },
+ { nivel: 7, nombre: 'Experto', minPuntos: 3501, maxPuntos: 5000 },
+ { nivel: 8, nombre: 'Consultor', minPuntos: 5001, maxPuntos: 7500 },
+ { nivel: 9, nombre: 'Arquitecto', minPuntos: 7501, maxPuntos: 10000 },
+ { nivel: 10, nombre: 'Maestro de Ciberseguridad', minPuntos: 10001, maxPuntos: Infinity }
   ];
 
   /**
@@ -109,7 +115,9 @@ class StorageManager {
       return stored ? JSON.parse(stored) : this.DEFAULT_USER;
     } catch (error) {
       console.error('Error al obtener datos del usuario:', error);
-      return this.DEFAULT_USER;
+      return JSON.parse(
+        JSON.stringify(this.DEFAULT_USER)
+      );
     }
   }
 
@@ -174,6 +182,14 @@ class StorageManager {
     const levelInfo = this.LEVELS.find(l => l.nivel === user.nivel);
     const nextLevel = this.LEVELS.find(l => l.nivel === user.nivel + 1);
 
+    let progreso = 100;
+
+if (nextLevel) {
+    progreso =
+        ((user.puntajeTotal - levelInfo.minPuntos) /
+        (levelInfo.maxPuntos - levelInfo.minPuntos)) * 100;
+}
+
     return {
       nivel: user.nivel,
       nombre: levelInfo.nombre,
@@ -182,8 +198,7 @@ class StorageManager {
       puntosMaximo: levelInfo.maxPuntos,
       siguienteNivel: nextLevel ? nextLevel.nombre : 'Máximo alcanzado',
       puntosParaSiguiente: nextLevel ? nextLevel.minPuntos - user.puntajeTotal : 0,
-      progreso: ((user.puntajeTotal - levelInfo.minPuntos) / 
-                 (levelInfo.maxPuntos - levelInfo.minPuntos)) * 100
+      progreso
     };
   }
 
@@ -242,9 +257,12 @@ class StorageManager {
     const user = this.getUser();
 
     // Validar estructura de la actividad
-    if (!actividad.tipo || !actividad.puntos) {
-      return false;
-    }
+    if (
+    !actividad.tipo ||
+    typeof actividad.puntos !== 'number'
+) {
+    return false;
+}
 
     // Crear registro de actividad
     const activityRecord = {
@@ -346,9 +364,15 @@ class StorageManager {
     try {
       const userData = JSON.parse(jsonData);
       // Validar estructura básica
-      if (!userData.usuario || !userData.puntajeTotal) {
-        return { exito: false, mensaje: 'Formato JSON inválido' };
-      }
+      if (
+    typeof userData.usuario === 'undefined' ||
+    typeof userData.puntajeTotal === 'undefined'
+) {
+    return {
+        exito: false,
+        mensaje: 'Formato JSON inválido'
+    };
+}
       this.saveUser(userData);
       return { exito: true, mensaje: 'Datos importados correctamente' };
     } catch (error) {

@@ -33,7 +33,7 @@ class Dashboard {
           <!-- Header del Dashboard -->
           <div class="dashboard-header">
             <h1 class="dashboard-title">🛡️ Bienvenido, ${user.usuario}</h1>
-            <p class="dashboard-subtitle">Aprende ciberseguridad de forma interactiva y divertida</p>
+            <p class="dashboard-subtitle">Fortalecer tus conocimientos sobre seguridad digital medainte actividades educativas interactivas</p>
             <span class="level-badge">Nivel ${user.nivel}: ${levelInfo.nombre}</span>
           </div>
 
@@ -69,7 +69,11 @@ class Dashboard {
             <div class="progress-title">Progreso al Siguiente Nivel</div>
             <div class="progress-item">
               <div class="progress-label">
-                <span>${levelInfo.puntosActuales}/${levelInfo.puntosMaximo} puntos</span>
+                <span>${
+ levelInfo.puntosMaximo === Infinity
+ ? `${levelInfo.puntosActuales}+`
+ : `${levelInfo.puntosActuales}/${levelInfo.puntosMaximo}`
+} puntos</span>
                 <span>${Math.round(levelInfo.progreso)}%</span>
               </div>
               <div class="progress-bar">
@@ -98,7 +102,7 @@ class Dashboard {
 
             <div class="progress-item">
               <div class="progress-label">
-                <span>Phishing Detectados</span>
+                <span>Correos sospechosos identificados</span>
                 <span>${stats.estadisticas.phishing}</span>
               </div>
             </div>
