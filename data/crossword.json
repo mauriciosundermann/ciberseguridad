@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "dificultad": "facil",
+    "palabras": [
+      {
+        "palabra": "CONTRASEÑA",
+        "posicion": "1-horizontal",
+        "fila": 1,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Código secreto para acceder a tus cuentas"
+      },
+      {
+        "palabra": "PHISHING",
+        "posicion": "2-horizontal",
+        "fila": 3,
+        "columna": 2,
+        "orientacion": "horizontal",
+        "pista": "Fraude mediante correos falsos que parecen legítimos"
+      },
+      {
+        "palabra": "MALWARE",
+        "posicion": "3-vertical",
+        "fila": 1,
+        "columna": 5,
+        "orientacion": "vertical",
+        "pista": "Software malicioso que daña tu computadora"
+      },
+      {
+        "palabra": "CIFRADO",
+        "posicion": "4-horizontal",
+        "fila": 5,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Proceso de convertir información en código secreto"
+      },
+      {
+        "palabra": "VIRUS",
+        "posicion": "5-vertical",
+        "fila": 3,
+        "columna": 8,
+        "orientacion": "vertical",
+        "pista": "Programa que se copia a sí mismo de forma destructiva"
+      }
+    ],
+    "respuestasUsuario": {},
+    "completado": false
+  },
+  {
+    "id": 2,
+    "dificultad": "medio",
+    "palabras": [
+      {
+        "palabra": "AUTENTICACION",
+        "posicion": "1-horizontal",
+        "fila": 1,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Proceso de verificar que eres quien dices ser"
+      },
+      {
+        "palabra": "FIREWALL",
+        "posicion": "2-horizontal",
+        "fila": 3,
+        "columna": 2,
+        "orientacion": "horizontal",
+        "pista": "Barrera de seguridad que controla el tráfico de red"
+      },
+      {
+        "palabra": "ENCRIPTACION",
+        "posicion": "3-vertical",
+        "fila": 1,
+        "columna": 8,
+        "orientacion": "vertical",
+        "pista": "Método para proteger información codificándola"
+      },
+      {
+        "palabra": "RANSOMWARE",
+        "posicion": "4-horizontal",
+        "fila": 5,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Malware que secuestra datos y pide dinero"
+      },
+      {
+        "palabra": "ANTIVIRUS",
+        "posicion": "5-vertical",
+        "fila": 3,
+        "columna": 12,
+        "orientacion": "vertical",
+        "pista": "Software que detecta y elimina software malicioso"
+      },
+      {
+        "palabra": "HACKER",
+        "posicion": "6-horizontal",
+        "fila": 7,
+        "columna": 3,
+        "orientacion": "horizontal",
+        "pista": "Persona que accede ilegalmente a sistemas informáticos"
+      }
+    ],
+    "respuestasUsuario": {},
+    "completado": false
+  },
+  {
+    "id": 3,
+    "dificultad": "avanzado",
+    "palabras": [
+      {
+        "palabra": "VULNERABILIDAD",
+        "posicion": "1-horizontal",
+        "fila": 1,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Debilidad en un sistema que puede ser explotada"
+      },
+      {
+        "palabra": "CIBERSEGURIDAD",
+        "posicion": "2-horizontal",
+        "fila": 3,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Disciplina que protege sistemas de ataques digitales"
+      },
+      {
+        "palabra": "TWOFACTOR",
+        "posicion": "3-vertical",
+        "fila": 1,
+        "columna": 8,
+        "orientacion": "vertical",
+        "pista": "Autenticación que requiere dos tipos de verificación (sin espacios)"
+      },
+      {
+        "palabra": "TROYANADO",
+        "posicion": "4-horizontal",
+        "fila": 5,
+        "columna": 2,
+        "orientacion": "horizontal",
+        "pista": "Malware disfrazado de programa legítimo (caballo de Troya)"
+      },
+      {
+        "palabra": "INTRUSIÓN",
+        "posicion": "5-vertical",
+        "fila": 2,
+        "columna": 15,
+        "orientacion": "vertical",
+        "pista": "Acceso no autorizado a un sistema"
+      },
+      {
+        "palabra": "DATOS",
+        "posicion": "6-horizontal",
+        "fila": 7,
+        "columna": 1,
+        "orientacion": "horizontal",
+        "pista": "Información digital que debe ser protegida"
+      },
+      {
+        "palabra": "VPN",
+        "posicion": "7-vertical",
+        "fila": 5,
+        "columna": 10,
+        "orientacion": "vertical",
+        "pista": "Red virtual privada que encripta tu conexión"
+      }
+    ],
+    "respuestasUsuario": {},
+    "completado": false
+  }
+]
