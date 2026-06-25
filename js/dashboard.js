@@ -44,8 +44,8 @@ class Dashboard {
         <!-- Header del Dashboard -->
           <div class="hero-section">
             <div class="hero-content">
-              <h1 class="hero-title">
-                🛡️ CiberSegura
+              <h1 class="hero-title"><img src="assets/icons/logo.png" alt="CiberSegura" class="header-logo">
+                CiberSegura
               </h1>
               <h2 class="hero-subtitle">
                 Aprender a detectar fraudes digitales
@@ -159,6 +159,7 @@ class Dashboard {
           <!-- Actividades Recientes -->
           ${this.renderRecentActivities()}
 
+          ${this.renderNoticias()}
         </div>
       </div>
     `;
@@ -448,6 +449,21 @@ class Dashboard {
       }, 300);
     }, duracion);
   }
+
+  renderNoticias() {
+
+    if (
+      !window.app ||
+      !window.app.newsManager
+    ) {
+      return '';
+    }
+
+    return window.app
+      .newsManager
+      .render();
+  }
+
 }
 
 // Exportar para uso en módulos

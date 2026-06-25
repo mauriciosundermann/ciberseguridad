@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portal educativo de ciberseguridad para personas mayores de 50 años">
-    <meta name="keywords" content="ciberseguridad, educación, seguridad online, phishing">
-    <title>CiberSegura - Aprende Ciberseguridad</title>
-    
-    <!-- Estilos CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=1.0.0">
-    <link rel="stylesheet" href="css/dashboard.css?v=1.0.0">
-    <link rel="stylesheet" href="css/games.css?v=1.0.0">
-    <link rel="stylesheet" href="css/resources.css?v=1.0.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portal educativo de ciberseguridad para personas mayores de 50 años">
+  <meta name="keywords" content="ciberseguridad, educación, seguridad online, phishing">
+  <title>CiberSegura - Aprende Ciberseguridad</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon.png">
+
+  <link rel="apple-touch-icon" href="assets/icons/favicon.png">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css?v=1.0.0">
+  <link rel="stylesheet" href="css/dashboard.css?v=1.0.0">
+  <link rel="stylesheet" href="css/games.css?v=1.0.0">
+  <link rel="stylesheet" href="css/resources.css?v=1.0.0">
 </head>
+
 <body>
   <div class="app-shell">
     <!-- Navegación Lateral (Sidebar) -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
-        <div class="brand">🛡️ CiberSegura</div>
+        <div class="brand"><img src="assets/icons/logo.png" alt="CiberSegura" class="header-logo">CiberSegura</div>
         <button class="menu-close" aria-label="Cerrar menú">×</button>
       </div>
 
       <nav class="sidebar-nav">
         <a class="sidebar-link active" href="#inicio" data-action="inicio">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 12l9-9 9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z" fill="currentColor"/>
+            <path d="M3 12l9-9 9 9v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z" fill="currentColor" />
           </svg>
           <span>Inicio</span>
         </a>
         <a class="sidebar-link" href="#actividades" data-action="actividades">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 5h16v2H4V5Zm0 6h16v2H4v-2Zm0 6h10v2H4v-2Z" fill="currentColor"/>
+            <path d="M4 5h16v2H4V5Zm0 6h16v2H4v-2Zm0 6h10v2H4v-2Z" fill="currentColor" />
           </svg>
           <span>Actividades</span>
         </a>
         <a class="sidebar-link" href="#recursos" data-action="recursos">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 4h14a1 1 0 0 1 1 1v14l-4-4H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2 3v2h10V7H7Zm0 4v2h6v-2H7Z" fill="currentColor"/>
+            <path d="M5 4h14a1 1 0 0 1 1 1v14l-4-4H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2 3v2h10V7H7Zm0 4v2h6v-2H7Z"
+              fill="currentColor" />
           </svg>
           <span>Centro de Aprendizaje</span>
         </a>
@@ -76,5 +82,7 @@
   <script src="js/crossword.js"></script>
   <script src="js/app.js"></script>
   <script src="js/resources.js"></script>
+  <script src="js/news.js"></script>
 </body>
+
 </html>

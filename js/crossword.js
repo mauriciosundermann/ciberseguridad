@@ -25,6 +25,7 @@ class CrosswordGame {
     this.puntaje = 0;
     this.storageManager = StorageManager;
     this.estadoJuego = 'cargando';
+    this.nivelRegistrado = false;
   }
 
   /**
@@ -175,6 +176,9 @@ class CrosswordGame {
     `;
 
     this.container.innerHTML = crosswordHTML;
+
+    this.cargarProgreso();
+
     this.attachEventListeners();
   }
 
@@ -323,6 +327,58 @@ class CrosswordGame {
     return { horizontal, vertical };
   }
 
+  guardarProgreso() {
+
+    const respuestas = {};
+
+    document
+      .querySelectorAll('.crossword-cell input')
+      .forEach(input => {
+
+        respuestas[
+          `${input.dataset.row}-${input.dataset.col}`
+        ] = input.value;
+      });
+
+    localStorage.setItem(
+      'crossword-progress',
+      JSON.stringify({
+        crucigramaId: this.crucigrama.id,
+        respuestas
+      })
+    );
+  }
+  cargarProgreso() {
+
+    const data = JSON.parse(
+      localStorage.getItem(
+        'crossword-progress'
+      )
+    );
+
+    if (
+      !data ||
+      data.crucigramaId !== this.crucigrama.id
+    ) {
+      return;
+    }
+
+    Object.entries(data.respuestas)
+      .forEach(([key, value]) => {
+
+        const [row, col] =
+          key.split('-');
+
+        const input =
+          document.querySelector(
+            `[data-row="${row}"][data-col="${col}"]`
+          );
+
+        if (input) {
+          input.value = value;
+        }
+      });
+  }
   /**
    * Adjunta event listeners
    * @private
@@ -445,6 +501,23 @@ class CrosswordGame {
 
       this.puntaje += 50;
 
+      if (!this.nivelRegistrado) {
+
+        this.storageManager.registerActivity({
+
+          tipo: 'crucigrama',
+
+          puntos: 50,
+
+          detalles: {
+            nivel: this.crucigrama.id,
+            dificultad: this.crucigrama.dificultad
+          }
+        });
+
+        this.nivelRegistrado = true;
+      }
+
       this.mostrarRetroalimentacion(true);
 
     } else {
@@ -495,25 +568,62 @@ class CrosswordGame {
    * @param {boolean} esCorrect - Si es correcto
    */
   mostrarRetroalimentacion(esCorrect) {
-    const container = document.getElementById('feedback-container');
+
+    const container =
+      document.getElementById(
+        'feedback-container'
+      );
+
     if (esCorrect) {
+
       container.innerHTML = `
-        <div class="feedback success">
-          <div class="feedback-title">✓ ¡Crucigrama Completado!</div>
-          <div class="feedback-text">
-            ¡Excelente! Has completado el crucigrama correctamente. +50 puntos
-          </div>
+      <div class="feedback success">
+
+        <div class="feedback-title">
+          ✓ ¡Crucigrama Completado!
         </div>
-      `;
+
+        <div class="feedback-text">
+          ¡Excelente! Has completado el crucigrama correctamente.
+          +50 puntos
+        </div>
+
+        <button
+          id="btn-next-crossword"
+          class="btn btn-primary"
+          style="margin-top:15px;"
+        >
+          Siguiente Nivel →
+        </button>
+
+      </div>
+    `;
+
+      const nextBtn =
+        document.getElementById(
+          'btn-next-crossword'
+        );
+
+      nextBtn.addEventListener(
+        'click',
+        () => this.siguienteCrucigrama()
+      );
+
     } else {
+
       container.innerHTML = `
-        <div class="feedback error">
-          <div class="feedback-title">✗ Respuestas Incompletas</div>
-          <div class="feedback-text">
-            Verifica que todas las palabras estén correctas
-          </div>
+      <div class="feedback error">
+
+        <div class="feedback-title">
+          ✗ Respuestas Incompletas
         </div>
-      `;
+
+        <div class="feedback-text">
+          Verifica que todas las palabras estén correctas.
+        </div>
+
+      </div>
+    `;
     }
   }
 
@@ -522,12 +632,26 @@ class CrosswordGame {
    * @private
    */
   siguienteCrucigrama() {
+
+    this.nivelRegistrado = false;
     this.indexCrucigrama++;
 
-    if (this.indexCrucigrama < this.crucigramas.length) {
+    if (
+      this.indexCrucigrama <
+      this.crucigramas.length
+    ) {
+
       this.renderCrucigrama();
+
     } else {
-      this.estadoJuego = 'finalizado';
+
+      localStorage.removeItem(
+        'crossword-progress'
+      );
+
+      this.estadoJuego =
+        'finalizado';
+
       this.render();
     }
   }
@@ -570,9 +694,6 @@ class CrosswordGame {
     `;
 
     this.container.innerHTML = resultadosHTML;
-
-    // Registrar resultado
-    this.registrarResultado();
 
     const btnRepetir = document.getElementById('btn-repetir');
     const btnDashboard = document.getElementById('btn-dashboard');

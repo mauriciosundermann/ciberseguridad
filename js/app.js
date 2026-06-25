@@ -23,6 +23,7 @@ class CiberSeguraApp {
     this.crosswordGame = null;
     this.storageManager = StorageManager;
     this.resourcesManager = new ResourcesManager();
+    this.newsManager = new NewsManager();
 
     // Hacer la app global para acceso desde otros módulos
     window.app = this;
@@ -41,6 +42,7 @@ class CiberSeguraApp {
 
     // carga resourceManager
     await this.resourcesManager.loadModules();
+    await this.newsManager.load();
 
     // Configurar navegación
     this.setupNavigation();

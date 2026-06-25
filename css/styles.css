@@ -101,12 +101,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
 .brand {
   font-size: var(--font-size-large);
   font-weight: bold;
   color: white;
+
+   display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .menu-close {
@@ -179,6 +184,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 var(--spacing-lg);
+}
+.header-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
 }
 
 .menu-toggle {
