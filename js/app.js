@@ -22,6 +22,7 @@ class CiberSeguraApp {
     this.phishingGame = null;
     this.crosswordGame = null;
     this.storageManager = StorageManager;
+    this.resourcesManager = new ResourcesManager();
 
     // Hacer la app global para acceso desde otros módulos
     window.app = this;
@@ -30,7 +31,7 @@ class CiberSeguraApp {
   /**
    * Inicializa la aplicación
    */
-  init() {
+  async init() {
     console.log('Inicializando CiberSegura...');
 
     // Verificar disponibilidad de LocalStorage
@@ -38,11 +39,16 @@ class CiberSeguraApp {
       this.mostrarError('LocalStorage no está disponible. Algunos datos no se guardarán.');
     }
 
+    // carga resourceManager
+    await this.resourcesManager.loadModules();
+
     // Configurar navegación
     this.setupNavigation();
 
     // Mostrar dashboard inicial
     this.goToSection('inicio');
+
+
 
     console.log('✓ CiberSegura inicializada correctamente');
   }
@@ -59,8 +65,8 @@ class CiberSeguraApp {
         e.preventDefault();
 
         // Obtener la sección del href o data-action
-        let section = link.getAttribute('href')?.replace('#', '') || 
-                     link.dataset.action;
+        let section = link.getAttribute('href')?.replace('#', '') ||
+          link.dataset.action;
 
         this.goToSection(section);
 
@@ -108,11 +114,11 @@ class CiberSeguraApp {
     const sidebar = document.querySelector('.sidebar');
 
     if (sidebar) {
-        sidebar.classList.remove('active');
+      sidebar.classList.remove('active');
     }
 
     document.body.style.overflow = 'auto';
-}
+  }
 
   /**
    * Navega a una sección
@@ -138,9 +144,6 @@ class CiberSeguraApp {
         break;
       case 'recursos':
         this.showRecursos();
-        break;
-      case 'modulos':
-        this.showModulos();
         break;
       case 'actividades':
         this.showActividades();
@@ -196,134 +199,40 @@ class CiberSeguraApp {
     this.crosswordGame.iniciar();
   }
 
-  /**
-   * Muestra la sección de recursos
-   * @private
-   */
   showRecursos() {
-    const recursosHTML = `
-      <div class="main-content">
-        <div class="container">
-          <h1 style="margin-bottom: 30px;">📚 Recursos Educativos</h1>
 
-          <div class="grid grid-2">
-            <div class="card">
-              <div class="card-header">
-                <h2>Glosario de Términos</h2>
-              </div>
-              <div class="card-body">
-                <p>Aprende los términos técnicos más importantes en ciberseguridad.</p>
-              </div>
-              <div class="card-footer">
-                <button class="btn btn-primary" onclick="app.showGlosario()">
-                  Ver Glosario
-                </button>
-              </div>
-            </div>
+    if (
+      !this.resourcesManager.modules ||
+      this.resourcesManager.modules.length === 0
+    ) {
 
-            <div class="card">
-              <div class="card-header">
-                <h2>Guías de Seguridad</h2>
-              </div>
-              <div class="card-body">
-                <p>Consejos prácticos para mantener tus cuentas y dispositivos seguros.</p>
-              </div>
-              <div class="card-footer">
-                <button class="btn btn-primary" onclick="app.showGuias()">
-                  Ver Guías
-                </button>
-              </div>
-            </div>
+      this.mostrarError(
+        'No se pudo cargar el Centro de Aprendizaje.'
+      );
 
-            <div class="card">
-              <div class="card-header">
-                <h2>Preguntas Frecuentes</h2>
-              </div>
-              <div class="card-body">
-                <p>Respuestas a las preguntas más comunes sobre ciberseguridad.</p>
-              </div>
-              <div class="card-footer">
-                <button class="btn btn-primary" onclick="app.showFAQ()">
-                  Ver FAQ
-                </button>
-              </div>
-            </div>
+      return;
+    }
 
-            <div class="card">
-              <div class="card-header">
-                <h2>Certificados y Verificación</h2>
-              </div>
-              <div class="card-body">
-                <p>Descarga tu certificado de participación al completar módulos.</p>
-              </div>
-              <div class="card-footer">
-                <button class="btn btn-primary" onclick="app.downloadCertificate()">
-                  Descargar
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 30px; text-align: center;">
-            <button class="btn btn-secondary" onclick="app.goToSection('inicio')">
-              ← Volver al Dashboard
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-
-    this.appContainer.innerHTML = recursosHTML;
+    this.appContainer.innerHTML =
+      this.resourcesManager.render();
   }
+  openModule(moduleId) {
 
-  /**
-   * Muestra los módulos
-   * @private
-   */
-  showModulos() {
-    const modulosHTML = `
-      <div class="main-content">
-        <div class="container">
-          <h1 style="margin-bottom: 30px;">📖 Módulos de Aprendizaje</h1>
+    const module =
+      this.resourcesManager.getModule(moduleId);
 
-          <div class="grid grid-2">
-            <div class="card">
-              <div class="card-header">
-                <h2>Contraseñas Seguras</h2>
-              </div>
-              <div class="card-body">
-                <p>Aprende a crear y gestionar contraseñas robustas para proteger tus cuentas.</p>
-                <div style="margin: 10px 0;">
-                  <span class="badge badge-success">Completado</span>
-                </div>
-              </div>
-            </div>
+    if (!module) {
+      return;
+    }
 
-            <div class="card">
-              <div class="card-header">
-                <h2>Alfabetización Digital</h2>
-              </div>
-              <div class="card-body">
-                <p>Navega de forma segura en el entorno digital y comparte responsablemente.</p>
-                <div style="margin: 10px 0;">
-                  <span class="badge badge-success">Completado</span>
-                </div>
-              </div>
-            </div>
-          </div>
+    const mainContent =
+      document.getElementById('main-content');
 
-          <div style="margin-top: 30px; text-align: center;">
-            <button class="btn btn-secondary" onclick="app.goToSection('inicio')">
-              ← Volver al Dashboard
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-
-    this.appContainer.innerHTML = modulosHTML;
+    mainContent.innerHTML =
+      this.resourcesManager.renderModule(
+        moduleId
+      );
   }
-
   /**
    * Muestra las actividades
    * @private

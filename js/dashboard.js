@@ -303,8 +303,8 @@ class Dashboard {
 
         <button class="action-button" data-action="recursos">
           <div class="action-card">
-            <div class="action-icon">📚</div>
-            <div class="action-title">Recursos</div>
+            <div class="action-icon">🎓</div>
+            <div class="action-title">Centro de Aprendizaje</div>
             <div class="action-description">
               Contenido adicional para reforzar conocimientos sobre seguridad digital.
             </div>

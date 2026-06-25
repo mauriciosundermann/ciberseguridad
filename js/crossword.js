@@ -184,17 +184,37 @@ class CrosswordGame {
    * @returns {string} HTML del grid
    */
   generarGrid() {
-    // Crear matriz vacía (max 15x15)
-    const size = 15;
-    const matrix = Array(size).fill(null).map(() => Array(size).fill('black'));
 
-    // Colocar palabras
+    let maxRow = 0;
+    let maxCol = 0;
+
     this.crucigrama.palabras.forEach(palabra => {
-      let row = palabra.fila - 1;
-      let col = palabra.columna - 1;
 
-      for (let char of palabra.palabra) {
-        matrix[row][col] = char;
+      const finFila =
+        palabra.orientacion === 'vertical'
+          ? palabra.fila + palabra.palabra.length - 1
+          : palabra.fila;
+
+      const finCol =
+        palabra.orientacion === 'horizontal'
+          ? palabra.columna + palabra.palabra.length - 1
+          : palabra.columna;
+
+      maxRow = Math.max(maxRow, finFila);
+      maxCol = Math.max(maxCol, finCol);
+    });
+
+    const usadas = {};
+
+    this.crucigrama.palabras.forEach(palabra => {
+
+      let row = palabra.fila;
+      let col = palabra.columna;
+
+      for (let i = 0; i < palabra.palabra.length; i++) {
+
+        usadas[`${row}-${col}`] = true;
+
         if (palabra.orientacion === 'horizontal') {
           col++;
         } else {
@@ -203,30 +223,75 @@ class CrosswordGame {
       }
     });
 
-    // Generar HTML
-    let grid = '<div class="crossword-grid">';
-    for (let i = 0; i < size; i++) {
-      grid += '<div class="crossword-row">';
-      for (let j = 0; j < size; j++) {
-        if (matrix[i][j] === 'black') {
-          grid += '<div class="crossword-cell black"></div>';
-        } else {
-          const id = `cell-${i}-${j}`;
-          grid += `
-            <div class="crossword-cell">
-              <input type="text" 
-                     id="${id}" 
-                     maxlength="1" 
-                     data-row="${i}" 
-                     data-col="${j}"
-                     autocomplete="off">
-            </div>
-          `;
-        }
-      }
-      grid += '</div>';
+    let grid = `
+        <div class="crossword-wrapper">
+            <div class="column-labels">
+    `;
+
+    for (let c = 1; c <= maxCol; c++) {
+      grid += `<div class="coord">${c}</div>`;
     }
-    grid += '</div>';
+
+    grid += `
+            </div>
+            <div class="crossword-grid">
+    `;
+
+    for (let row = 1; row <= maxRow; row++) {
+
+      grid += `
+            <div class="crossword-row">
+                <div class="row-label">${row}</div>
+        `;
+
+      for (let col = 1; col <= maxCol; col++) {
+
+        const key = `${row}-${col}`;
+
+        if (!usadas[key]) {
+
+          grid += `
+                    <div class="crossword-empty"></div>
+                `;
+
+          continue;
+        }
+
+        const inicio =
+          this.crucigrama.palabras.find(
+            p =>
+              p.fila === row &&
+              p.columna === col
+          );
+
+        grid += `
+                <div class="crossword-cell">
+
+                    ${inicio
+            ? `<span class="crossword-number">
+                                ${inicio.posicion.split('-')[0]}
+                              </span>`
+            : ''
+          }
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        data-row="${row}"
+                        data-col="${col}"
+                    >
+
+                </div>
+            `;
+      }
+
+      grid += `</div>`;
+    }
+
+    grid += `
+            </div>
+        </div>
+    `;
 
     return grid;
   }
@@ -269,19 +334,47 @@ class CrosswordGame {
     const btnVolver = document.getElementById('btn-volver');
 
     // Manejar entrada de datos
-    inputs.forEach((input, index) => {
-      input.addEventListener('input', (e) => {
-        e.target.value = e.target.value.toUpperCase();
+    inputs.forEach(input => {
 
-        // Mover al siguiente input automáticamente
-        if (e.target.value.length === 1 && index < inputs.length - 1) {
-          inputs[index + 1].focus();
+      input.addEventListener('input', e => {
+
+        e.target.value =
+          e.target.value.toUpperCase();
+
+        const siguiente =
+          this.getNextCell(e.target);
+
+        if (
+          e.target.value &&
+          siguiente
+        ) {
+          siguiente.focus();
         }
+
+        this.guardarProgreso();
       });
 
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Backspace' && !e.target.value && index > 0) {
-          inputs[index - 1].focus();
+      input.addEventListener('keydown', e => {
+
+        const row =
+          parseInt(e.target.dataset.row);
+
+        const col =
+          parseInt(e.target.dataset.col);
+
+        if (
+          e.key === 'Backspace' &&
+          !e.target.value
+        ) {
+
+          const anterior =
+            document.querySelector(
+              `[data-row="${row}"][data-col="${col - 1}"]`
+            );
+
+          if (anterior) {
+            anterior.focus();
+          }
         }
       });
     });
@@ -303,47 +396,60 @@ class CrosswordGame {
    * @private
    */
   verificarRespuesta() {
-    const inputs = document.querySelectorAll('.crossword-cell input');
-    let respuestasCorrectas = 0;
-    let totalPalabras = this.crucigrama.palabras.length;
 
-    inputs.forEach(input => {
-      const valor = input.value.toUpperCase();
-      if (valor) {
-        const row = parseInt(input.dataset.row);
-        const col = parseInt(input.dataset.col);
+    let correctas = 0;
 
-        // Verificar si es correcto
-        const esCorrect = this.verificarCelda(row, col, valor);
-        if (esCorrect) {
-          input.classList.add('correct');
-          respuestasCorrectas++;
+    this.crucigrama.palabras.forEach(palabra => {
+
+      const esCorrecta =
+        this.verificarPalabra(palabra);
+
+      let row = palabra.fila;
+      let col = palabra.columna;
+
+      for (let i = 0; i < palabra.palabra.length; i++) {
+
+        const input =
+          document.querySelector(
+            `[data-row="${row}"][data-col="${col}"]`
+          );
+
+        input.classList.remove(
+          'correct',
+          'incorrect'
+        );
+
+        input.classList.add(
+          esCorrecta
+            ? 'correct'
+            : 'incorrect'
+        );
+
+        if (palabra.orientacion === 'horizontal') {
+          col++;
         } else {
-          input.classList.add('incorrect');
+          row++;
         }
+      }
+
+      if (esCorrecta) {
+        correctas++;
       }
     });
 
-    // Calcular puntuación
-    const esCompleto = respuestasCorrectas === inputs.length && inputs.length > 0;
+    const completo =
+      correctas ===
+      this.crucigrama.palabras.length;
 
-    if (esCompleto) {
+    if (completo) {
+
       this.puntaje += 50;
-      this.mostrarRetroalimentacion(true);
-    } else {
-      this.mostrarRetroalimentacion(false);
-    }
 
-    // Crear botón siguiente
-    const btnVerificar = document.getElementById('btn-verificar');
-    if (esCompleto) {
-      btnVerificar.style.display = 'none';
-      const btnSiguiente = document.createElement('button');
-      btnSiguiente.className = 'btn btn-primary';
-      btnSiguiente.textContent = 'Siguiente →';
-      btnSiguiente.id = 'btn-siguiente';
-      btnSiguiente.addEventListener('click', () => this.siguienteCrucigrama());
-      document.querySelector('.game-buttons').insertBefore(btnSiguiente, btnVerificar.nextSibling);
+      this.mostrarRetroalimentacion(true);
+
+    } else {
+
+      this.mostrarRetroalimentacion(false);
     }
   }
 
@@ -355,26 +461,32 @@ class CrosswordGame {
    * @param {string} valor - Valor ingresado
    * @returns {boolean} True si es correcto
    */
-  verificarCelda(row, col, valor) {
-    // Buscar la palabra que contiene esta celda
-    for (let palabra of this.crucigrama.palabras) {
-      let r = palabra.fila - 1;
-      let c = palabra.columna - 1;
+  verificarPalabra(palabra) {
 
-      for (let i = 0; i < palabra.palabra.length; i++) {
-        if (r === row && c === col) {
-          return palabra.palabra[i].toUpperCase() === valor;
-        }
+    let respuesta = '';
 
-        if (palabra.orientacion === 'horizontal') {
-          c++;
-        } else {
-          r++;
-        }
+    let row = palabra.fila;
+    let col = palabra.columna;
+
+    for (let i = 0; i < palabra.palabra.length; i++) {
+
+      const input =
+        document.querySelector(
+          `[data-row="${row}"][data-col="${col}"]`
+        );
+
+      respuesta +=
+        (input?.value || '').toUpperCase();
+
+      if (palabra.orientacion === 'horizontal') {
+        col++;
+      } else {
+        row++;
       }
     }
 
-    return false;
+    return this.normalizarTexto(respuesta) ===
+      this.normalizarTexto(palabra.palabra);
   }
 
   /**
@@ -511,6 +623,66 @@ class CrosswordGame {
       </div>
     `;
   }
+
+  normalizarTexto(texto) {
+
+    return texto
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toUpperCase();
+  }
+
+  getNextCell(currentInput) {
+
+    const row =
+      parseInt(currentInput.dataset.row);
+
+    const col =
+      parseInt(currentInput.dataset.col);
+
+    const palabra =
+      this.obtenerPalabraActiva(row, col);
+
+    if (!palabra) return null;
+
+    let nextRow = row;
+    let nextCol = col;
+
+    if (palabra.orientacion === 'horizontal') {
+
+      nextCol++;
+
+    } else {
+
+      nextRow++;
+    }
+
+    return document.querySelector(
+      `[data-row="${nextRow}"][data-col="${nextCol}"]`
+    );
+  }
+
+  obtenerPalabraActiva(row, col) {
+
+    return this.crucigrama.palabras.find(p => {
+
+      if (p.orientacion === 'horizontal') {
+
+        return (
+          row === p.fila &&
+          col >= p.columna &&
+          col < p.columna + p.palabra.length
+        );
+      }
+
+      return (
+        col === p.columna &&
+        row >= p.fila &&
+        row < p.fila + p.palabra.length
+      );
+    });
+  }
+
 }
 
 // Exportar para uso en módulos
