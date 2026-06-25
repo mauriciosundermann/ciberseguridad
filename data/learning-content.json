@@ -1,0 +1,53 @@
+{
+  "modules": [
+    {
+      "id": "passwords",
+      "title": "Contraseñas Seguras",
+      "icon": "🔑",
+      "description": "Aprenda a crear contraseñas fuertes y proteger sus cuentas.",
+      "content": "Las contraseñas son mecanismos de autenticación utilizados para verificar la identidad de una persona en un sistema digital.",
+      "tips": [
+        "Utilice al menos 12 caracteres.",
+        "Evite nombres propios.",
+        "No reutilice contraseñas."
+      ]
+    },
+    {
+      "id": "phishing",
+      "title": "Detección de Phishing",
+      "icon": "🎣",
+      "description": "Identifique correos electrónicos y sitios fraudulentos.",
+      "content": "El phishing es una técnica utilizada para engañar a las personas y obtener información confidencial.",
+      "tips": [
+        "Verifique la dirección del remitente.",
+        "No haga clic en enlaces sospechosos.",
+        "Desconfíe de solicitudes urgentes."
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "title": "WhatsApp Seguro",
+      "icon": "📱",
+      "description": "Proteja sus conversaciones y evite estafas.",
+      "content": "WhatsApp es una de las plataformas más utilizadas para la comunicación digital.",
+      "tips": [
+        "Active la verificación en dos pasos.",
+        "No comparta códigos de verificación.",
+        "Desconfíe de mensajes de desconocidos."
+      ]
+      
+    },
+    {
+      "id": "banking",
+      "title": "Banca Electrónica",
+      "icon": "🏦",
+      "description": "Buenas prácticas para operar con seguridad.",
+      "content":  "La banca electrónica permite realizar operaciones financieras por internet.",
+      "tips": [
+        "Utilice conexiones seguras (HTTPS).",
+        "No comparta información bancaria.",
+        "Revise regularmente sus estados de cuenta."
+      ]
+    }
+  ]
+}

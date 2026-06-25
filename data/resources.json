@@ -1,0 +1,34 @@
+{
+  "categorias": [
+    {
+      "id": "passwords",
+      "titulo": "Contraseñas Seguras",
+      "icono": "🔑",
+      "descripcion": "Las contraseñas constituyen mecanismos de autenticación utilizados para verificar la identidad de una persona en sistemas digitales."
+    },
+    {
+      "id": "phishing",
+      "titulo": "Detección de Phishing",
+      "icono": "🎣",
+      "descripcion": "Identificar correos y sitios fraudulentos."
+    },
+    {
+      "id": "whatsapp",
+      "titulo": "WhatsApp Seguro",
+      "icono": "📱",
+      "descripcion": "Consejos para evitar estafas por mensajería."
+    },
+    {
+      "id": "compras",
+      "titulo": "Compras Online Seguras",
+      "icono": "🛒",
+      "descripcion": "Buenas prácticas para comprar por internet."
+    },
+    {
+      "id": "banca",
+      "titulo": "Banca Electrónica",
+      "icono": "🏦",
+      "descripcion": "Protejer sus operaciones bancarias."
+    }
+  ]
+}

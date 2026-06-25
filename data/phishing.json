@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "asunto": "¡Actualiza tu contraseña ahora! - Seguridad Urgente",
+    "remitente": "support@bancoseguro.co",
+    "cuerpo": "Estimado cliente,\n\nPor razones de seguridad, debe actualizar su contraseña inmediatamente. Haga clic aquí para cambiarla: bit.ly/actualizar-ahora\n\nAtentamente,\nEquipo de Soporte",
+    "elementos_sospechosos": [
+      "bit.ly/actualizar-ahora",
+      "Urgencia artificial",
+      "No presenta nombre personalizado"
+    ],
+    "explicacion": "Este es un clásico correo de phishing. Los bancos legítimos NUNCA solicitan cambiar contraseña por correo. Los enlaces acortados ocultan el destino real. Siempre accede directamente al sitio web del banco en tu navegador.",
+    "riesgo": "alto",
+    "dificultad": "facil"
+  },
+  {
+    "id": 2,
+    "asunto": "Felicidades! Has ganado un premio",
+    "remitente": "premios@loteria-mundial.biz",
+    "cuerpo": "¡Enhorabuena!\n\nHas sido seleccionado como ganador de nuestro sorteo internacional.\nPremio: $50.000 USD\n\nPara reclamar tu premio, ingresa tus datos aquí: formulario-premio.tk/claim\n\nAttentamente,\nLotería Internacional",
+    "elementos_sospechosos": [
+      "Dominio sospechoso (.biz, .tk)",
+      "Promesa de dinero fácil",
+      "Nunca participaste en sorteo",
+      "Solicita datos personales"
+    ],
+    "explicacion": "Si nunca participaste en un sorteo, no puedes haber ganado. Las loterías legítimas nunca se promocionan por correo. Los dominios .tk son especialmente usados para fraudes. Nunca ingreses datos personales en enlaces de correos desconocidos.",
+    "riesgo": "alto",
+    "dificultad": "facil"
+  },
+  {
+    "id": 3,
+    "asunto": "Reporte de actividad inusual en tu cuenta Amazon",
+    "remitente": "account-security@amazon.com",
+    "cuerpo": "Hola,\n\nDetectamos un intento de acceso desde un dispositivo no reconocido.\nUbicación: Moscú, Rusia\n\nSi no fuiste tú, verifica tu cuenta de inmediato en tu app de Amazon.\n\nSaludos,\nEquipo de Seguridad Amazon",
+    "elementos_sospechosos": [
+      "Ausencia de enlace (en phishing real habría uno)",
+      "Ubicación imposible (si accedes localmente)",
+      "Lenguaje vago"
+    ],
+    "explicacion": "Este correo parece legítimo porque NO tiene enlaces sospechosos. Sin embargo, si recibes algo similar, accede a Amazon directamente desde tu navegador sin hacer clic en el correo. Los emails legítimos de Amazon generalmente incluyen enlances seguros. Cuando dudes, accede directamente al sitio.",
+    "riesgo": "medio",
+    "dificultad": "medio"
+  },
+  {
+    "id": 4,
+    "asunto": "Actualización importante de seguridad - Microsoft",
+    "remitente": "security-update@microsoft-support.info",
+    "cuerpo": "Estimado usuario,\n\nSu versión de Windows está desactualizada. Descargue la actualización de seguridad crítica:\n\nwindows-update-secure.exe\n\nEsta actualización corrige vulnerabilidades críticas.\n\nMicrosoft",
+    "elementos_sospechosos": [
+      "Dominio fraudulento (microsoft-support.info, no microsoft.com)",
+      "Archivo ejecutable (.exe)",
+      "Solicita descargar software",
+      "Crear urgencia"
+    ],
+    "explicacion": "Microsoft NUNCA envía actualizaciones por correo, especialmente como archivos ejecutables. Las actualizaciones legítimas vienen a través de Windows Update. Descargar archivos de correos desconocidos es muy peligroso. Siempre descarga software de fuentes oficiales.",
+    "riesgo": "muy_alto",
+    "dificultad": "medio"
+  },
+  {
+    "id": 5,
+    "asunto": "Tu paquete no pudo ser entregado - DHL",
+    "remitente": "notificacion@dhl-entrega.com",
+    "cuerpo": "Estimado cliente,\n\nIntentamos entregar tu paquete pero no había nadie en casa.\nPara reprogramar la entrega, haz clic:\n\ndhl-track.ru/reschedule?id=12345\n\nDHL Logística",
+    "elementos_sospechosos": [
+      "Dominio falso (.ru, no .com oficial)",
+      "Crea urgencia sobre paquete",
+      "ID en URL sin contexto personal",
+      "Ortografía dudosa"
+    ],
+    "explicacion": "DHL siempre usa su dominio oficial. Los dominios rusos (.ru) en un mensaje de empresa colombiana es sospechoso. Estos correos buscan que hagas clic en enlaces maliciosos. Si esperas un paquete, accede directamente a DHL.com y busca tu número de seguimiento.",
+    "riesgo": "alto",
+    "dificultad": "medio"
+  },
+  {
+    "id": 6,
+    "asunto": "Notificación: Nuevo inicio de sesión en tu Google",
+    "remitente": "noreply@google.com",
+    "cuerpo": "Se detectó un nuevo inicio de sesión en tu cuenta Google desde:\nDispositivo: Android\nUbicación: Cartagena, Colombia\nHora: 2026-06-23 10:15\n\nSi no fuiste tú, verifica tu actividad:\nhttps://myaccount.google.com/security-checkup\n\nGoogle",
+    "elementos_sospechosos": [],
+    "explicacion": "Este correo es LEGÍTIMO. Es un email de seguridad real de Google. Tiene: dominio correcto (google.com), enlace oficial, información específica. Sin embargo, la mejor práctica es acceder manualmente a myaccount.google.com sin hacer clic en el enlace del correo.",
+    "riesgo": "bajo",
+    "dificultad": "alto"
+  }
+]
