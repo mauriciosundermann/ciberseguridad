@@ -24,6 +24,7 @@ class CiberSeguraApp {
     this.storageManager = StorageManager;
     this.resourcesManager = new ResourcesManager();
     this.newsManager = new NewsManager();
+    this.aboutManager = new AboutManager();
 
     // Hacer la app global para acceso desde otros módulos
     window.app = this;
@@ -149,6 +150,9 @@ class CiberSeguraApp {
         break;
       case 'actividades':
         this.showActividades();
+        break;
+      case 'acerca':
+        this.showAbout();
         break;
       default:
         this.showDashboard();
@@ -416,6 +420,12 @@ class CiberSeguraApp {
     `;
 
     this.appContainer.innerHTML = faqHTML;
+  }
+
+  showAbout() {
+
+    this.appContainer.innerHTML =
+      this.aboutManager.render();
   }
 
   /**
