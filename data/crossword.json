@@ -12,28 +12,20 @@
       "pista": "Código secreto para acceder a tus cuentas"
     },
     {
-      "palabra": "VIRUS",
+      "palabra": "UNICA",
       "fila": 6,
-      "columna": 7,
-      "orientacion": "vertical",
-      "posicion": "2-vertical",
-      "pista": "Programa que puede dañar tu equipo"
-    },
-    {
-      "palabra": "PHISHING",
-      "fila": 7,
-      "columna": 2,
+      "columna": 1,
       "orientacion": "horizontal",
       "posicion": "1-horizontal",
-      "pista": "Fraude mediante correos falsos"
+      "pista": "Asegúrate de que tu contraseña sea _______ y difícil de adivinar"
     },
     {
-      "palabra": "TOKEN",
-      "fila": 2,
+      "palabra": "INFORMACION",
+      "fila": 3,
       "columna": 4,
       "orientacion": "horizontal",
       "posicion": "2-horizontal",
-      "pista": "Dispositivo o código que genera contraseñas temporales"
+      "pista": "Datos que deben ser protegidos para evitar filtraciones"
     }
   ]
 },
@@ -42,52 +34,44 @@
     "dificultad": "medio",
     "palabras": [
       {
-        "palabra": "AUTENTICACION",
+        "palabra": "COMUNICACION",
+        "posicion": "1-vertical",
+        "fila": 1,
+        "columna": 5,
+        "orientacion": "vertical",
+        "pista": "Proceso de intercambio de información entre sistemas o personas"
+      },
+      {
+        "palabra": "DINERO",
+        "posicion": "2-vertical",
+        "fila": 1,
+        "columna": 9,
+        "orientacion": "vertical",
+        "pista": "Recurso que los ciberdelincuentes suelen pedir a cambio de liberar tus datos"
+      },
+      {
+        "palabra": "COTIDIANA",
         "posicion": "1-horizontal",
         "fila": 1,
-        "columna": 1,
+        "columna": 5,
         "orientacion": "horizontal",
-        "pista": "Proceso de verificar que eres quien dices ser"
+        "pista": "Acciones que realizamos todos los días, como revisar nuestras cuentas en línea"
       },
       {
-        "palabra": "FIREWALL",
+        "palabra": "MENSAJES",
         "posicion": "2-horizontal",
-        "fila": 3,
-        "columna": 2,
-        "orientacion": "horizontal",
-        "pista": "Barrera de seguridad que controla el tráfico de red"
-      },
-      {
-        "palabra": "ENCRIPTACION",
-        "posicion": "3-vertical",
-        "fila": 1,
+        "fila": 4,
         "columna": 8,
-        "orientacion": "vertical",
-        "pista": "Método para proteger información codificándola"
-      },
-      {
-        "palabra": "RANSOMWARE",
-        "posicion": "4-horizontal",
-        "fila": 5,
-        "columna": 1,
         "orientacion": "horizontal",
-        "pista": "Malware que secuestra datos y pide dinero"
+        "pista": "Información que enviamos y recibimos a través de aplicaciones de mensajería"
       },
       {
-        "palabra": "ANTIVIRUS",
-        "posicion": "5-vertical",
-        "fila": 3,
-        "columna": 12,
-        "orientacion": "vertical",
-        "pista": "Software que detecta y elimina software malicioso"
-      },
-      {
-        "palabra": "HACKER",
-        "posicion": "6-horizontal",
-        "fila": 7,
+        "palabra": "FRAUDE",
+        "posicion": "3-horizontal",
+        "fila": 8,
         "columna": 3,
         "orientacion": "horizontal",
-        "pista": "Persona que accede ilegalmente a sistemas informáticos"
+        "pista": "Acto de engaño para obtener beneficios ilegales"
       }
     ],
     "respuestasUsuario": {},
@@ -98,60 +82,60 @@
     "dificultad": "avanzado",
     "palabras": [
       {
-        "palabra": "VULNERABILIDAD",
-        "posicion": "1-horizontal",
-        "fila": 1,
-        "columna": 1,
-        "orientacion": "horizontal",
-        "pista": "Debilidad en un sistema que puede ser explotada"
+        "palabra": "PROTECCION",
+        "posicion": "1-vertical",
+        "fila": 7,
+        "columna": 5,
+        "orientacion": "vertical",
+        "pista": "Medida o acción destinada a salvaguardar algo"
       },
       {
-        "palabra": "CIBERSEGURIDAD",
-        "posicion": "2-horizontal",
+        "palabra": "FINANCIERAS",
+        "posicion": "2-vertical",
         "fila": 3,
-        "columna": 1,
-        "orientacion": "horizontal",
-        "pista": "Disciplina que protege sistemas de ataques digitales"
+        "columna": 11,
+        "orientacion": "vertical",
+        "pista": "Relacionadas con el manejo de recursos económicos"
       },
       {
-        "palabra": "TWOFACTOR",
+        "palabra": "RIESGOS",
         "posicion": "3-vertical",
         "fila": 1,
-        "columna": 8,
+        "columna": 14,
         "orientacion": "vertical",
-        "pista": "Autenticación que requiere dos tipos de verificación (sin espacios)"
+        "pista": "Posibles amenazas o peligros que pueden afectar la seguridad de tus datos"
       },
       {
-        "palabra": "TROYANADO",
-        "posicion": "4-horizontal",
-        "fila": 5,
-        "columna": 2,
+        "palabra": "BANCARIOS",
+        "posicion": "1-horizontal",
+        "fila": 6,
+        "columna": 7,
         "orientacion": "horizontal",
-        "pista": "Malware disfrazado de programa legítimo (caballo de Troya)"
+        "pista": "Relacionados con las operaciones financieras en instituciones bancarias"
       },
       {
-        "palabra": "INTRUSIÓN",
-        "posicion": "5-vertical",
-        "fila": 2,
-        "columna": 15,
-        "orientacion": "vertical",
-        "pista": "Acceso no autorizado a un sistema"
+        "palabra": "TRANSFERIR",
+        "posicion": "2-horizontal",
+        "fila": 10,
+        "columna": 5,
+        "orientacion": "horizontal",
+        "pista": "Mover dinero de una cuenta a otra, ya sea dentro del mismo banco o entre diferentes bancos"
       },
       {
-        "palabra": "DATOS",
-        "posicion": "6-horizontal",
-        "fila": 7,
+        "palabra": "HABITOS",
+        "posicion": "3-horizontal",
+        "fila": 12,
+        "columna": 10,
+        "orientacion": "horizontal",
+        "pista": "Conducta o acción que se repite con regularidad de forma automática"
+      },
+      {
+        "palabra": "PUBLICOS",
+        "posicion": "4-horizontal",
+        "fila": 14,
         "columna": 1,
         "orientacion": "horizontal",
-        "pista": "Información digital que debe ser protegida"
-      },
-      {
-        "palabra": "VPN",
-        "posicion": "7-vertical",
-        "fila": 5,
-        "columna": 10,
-        "orientacion": "vertical",
-        "pista": "Red virtual privada que encripta tu conexión"
+        "pista": "Acciones o información que se hacen accesibles a todos, sin restricciones de privacidad"
       }
     ],
     "respuestasUsuario": {},

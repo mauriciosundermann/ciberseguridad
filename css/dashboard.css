@@ -16,18 +16,18 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     margin-bottom: var(--spacing-md);
 }
 
-.dashboard-subtitle,.activities-description {
+.dashboard-subtitle,
+.activities-description {
     font-size: var(--font-size-base);
     color: #666;
 }
+
 /* Header */
 .hero-section {
     background:
-      linear-gradient(
-        135deg,
-        #1E3A8A,
-        #2563EB
-      );
+        linear-gradient(135deg,
+            #1E3A8A,
+            #2563EB);
 
     color: white;
 
@@ -43,6 +43,9 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
 .hero-title {
     font-size: 2.4rem;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .hero-subtitle {
@@ -60,7 +63,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
 
     display: inline-block;
 
-    background: rgba(255,255,255,.15);
+    background: rgba(255, 255, 255, .15);
 
     padding: 10px 20px;
 
@@ -88,11 +91,9 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
 }
 
 .tip-card {
-    background: linear-gradient(
-        135deg,
-        #eff6ff,
-        #ffffff
-    );
+    background: linear-gradient(135deg,
+            #eff6ff,
+            #ffffff);
 
     border-left: 6px solid #2563EB;
 
@@ -123,6 +124,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
 }
+
 /* Tarjetas de estadísticas */
 
 .stats-title {
@@ -149,6 +151,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     justify-content: center;
     text-align: center;
 }
+
 .stat-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
@@ -165,11 +168,13 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
 .stat-card.stat-activities {
     border-left-color: var(--color-danger);
 }
+
 .stat-icon {
     position: static;
     opacity: .35;
     font-size: 20px;
 }
+
 .stat-value {
     font-size: 1.8rem;
     font-weight: bold;
@@ -177,6 +182,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     margin-bottom: 4px;
     z-index: 2;
 }
+
 .stat-label {
     font-size: 0.95rem;
     color: #666;
@@ -250,6 +256,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: var(--spacing-md);
 }
+
 .achievement-badge {
     background: white;
     border-radius: 16px;
@@ -257,6 +264,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     text-align: center;
     min-height: 140px;
 }
+
 .achievement-badge.unlocked {
     border: 2px solid #22C55E;
     background: #f0fdf4;
@@ -316,8 +324,9 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     box-shadow: var(--shadow-md);
     margin-bottom: 30px;
 }
-.activities-title{
-    
+
+.activities-title {
+
     font-size: 1.8rem;
     margin-bottom: 28px;
     color: #1E3A8A;
@@ -399,7 +408,7 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
 
     border-color: #2563EB;
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(37,99,235,.15);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, .15);
 }
 
 .action-icon {
@@ -439,4 +448,65 @@ ESTILOS DEL DASHBOARD Componentes específicos del panel de control
     .dashboard-actions {
         grid-template-columns: 1fr;
     }
+}
+
+.news-section {
+
+    margin-top: 40px;
+}
+
+.news-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(280px, 1fr));
+
+    gap: 20px;
+}
+
+.news-card {
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border-left: 5px solid #2563EB;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.news-card h3 {
+
+    margin-bottom: 10px;
+}
+
+.news-date {
+
+    color: #64748b;
+
+    font-size: .85rem;
+
+    margin-bottom: 10px;
+}
+
+.news-category {
+
+    display: inline-block;
+
+    margin-top: 10px;
+
+    background: #dbeafe;
+
+    color: #1e40af;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: .8rem;
 }

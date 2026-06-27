@@ -23,6 +23,8 @@ class CiberSeguraApp {
     this.crosswordGame = null;
     this.storageManager = StorageManager;
     this.resourcesManager = new ResourcesManager();
+    this.newsManager = new NewsManager();
+    this.aboutManager = new AboutManager();
 
     // Hacer la app global para acceso desde otros módulos
     window.app = this;
@@ -41,6 +43,7 @@ class CiberSeguraApp {
 
     // carga resourceManager
     await this.resourcesManager.loadModules();
+    await this.newsManager.load();
 
     // Configurar navegación
     this.setupNavigation();
@@ -147,6 +150,9 @@ class CiberSeguraApp {
         break;
       case 'actividades':
         this.showActividades();
+        break;
+      case 'acerca':
+        this.showAbout();
         break;
       default:
         this.showDashboard();
@@ -414,6 +420,12 @@ class CiberSeguraApp {
     `;
 
     this.appContainer.innerHTML = faqHTML;
+  }
+
+  showAbout() {
+
+    this.appContainer.innerHTML =
+      this.aboutManager.render();
   }
 
   /**

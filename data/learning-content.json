@@ -5,11 +5,18 @@
       "title": "Contraseñas Seguras",
       "icon": "🔑",
       "description": "Aprenda a crear contraseñas fuertes y proteger sus cuentas.",
-      "content": "Las contraseñas son mecanismos de autenticación utilizados para verificar la identidad de una persona en un sistema digital.",
+      "content": "Las contraseñas son una de las principales herramientas para proteger la información personal en internet. Cada vez que una persona accede a su correo electrónico, redes sociales, aplicaciones bancarias o servicios digitales, utiliza una contraseña para demostrar que es el propietario legítimo de esa cuenta. Muchas personas utilizan fechas de nacimiento, nombres de familiares o combinaciones sencillas porque resultan fáciles de recordar. Sin embargo, este tipo de contraseñas también son fáciles de descubrir para quienes intentan acceder de manera indebida a una cuenta. Una contraseña segura debe ser única para cada servicio y combinar letras mayúsculas, letras minúsculas y números. También es recomendable evitar compartirlas con otras personas o anotarlas en lugares visibles. Por ejemplo, utilizar 'Maria1960' ofrece poca protección, mientras que una combinación más extensa y difícil de adivinar proporciona una mayor seguridad. Dedicar unos minutos a crear contraseñas seguras puede evitar problemas importantes relacionados con la pérdida de información o el acceso no autorizado a cuentas personales.",
       "tips": [
-        "Utilice al menos 12 caracteres.",
-        "Evite nombres propios.",
-        "No reutilice contraseñas."
+        "Utilice contraseñas de al menos 12 caracteres.",
+        "Combine letras mayúsculas, letras minúsculas y números.",
+        "Evite utilizar nombres, fechas de nacimiento o números de documento.",
+        "No utilice la misma contraseña en distintas cuentas.",
+        "No comparta sus contraseñas con otras personas.",
+        "Evite anotarlas en lugares visibles o fácilmente accesibles.",
+        "Cambie sus contraseñas si sospecha que alguien pudo conocerlas.",
+        "Active la verificación en dos pasos cuando el servicio lo permita.",
+        "Utilice únicamente sitios web oficiales para iniciar sesión.",
+        "Cierre la sesión al utilizar dispositivos compartidos."
       ]
     },
     {
@@ -17,11 +24,18 @@
       "title": "Detección de Phishing",
       "icon": "🎣",
       "description": "Identifique correos electrónicos y sitios fraudulentos.",
-      "content": "El phishing es una técnica utilizada para engañar a las personas y obtener información confidencial.",
+      "content": "El phishing es una forma de engaño que se realiza a través de internet. Los delincuentes intentan hacerse pasar por bancos, organismos oficiales, empresas conocidas o incluso familiares para obtener información personal de las personas. Generalmente estos intentos de fraude llegan mediante correos electrónicos, mensajes de texto o aplicaciones de mensajería. El mensaje suele transmitir urgencia, por ejemplo indicando que una cuenta será suspendida o que existe un problema con una operación bancaria. Ante este tipo de situaciones es importante mantener la calma y verificar la información antes de realizar cualquier acción. Ninguna entidad seria solicita contraseñas, códigos de seguridad o datos bancarios completos mediante mensajes inesperados. Reconocer estas señales permite reducir significativamente el riesgo de convertirse en víctima de una estafa digital.",
       "tips": [
-        "Verifique la dirección del remitente.",
-        "No haga clic en enlaces sospechosos.",
-        "Desconfíe de solicitudes urgentes."
+        "Verifique cuidadosamente quién envía el mensaje.",
+        "Desconfíe de mensajes que generen presión o urgencia.",
+        "No haga clic en enlaces recibidos de manera inesperada.",
+        "Evite descargar archivos adjuntos de remitentes desconocidos.",
+        "Compruebe la información utilizando sitios web y teléfonos oficiales.",
+        "Nunca comparta contraseñas o códigos de verificación recibidos por mensaje.",
+        "Revise si existen errores de redacción o direcciones web extrañas.",
+        "Consulte con un familiar o persona de confianza cuando tenga dudas.",
+        "Recuerde que los bancos y organismos oficiales no solicitan información confidencial por correo electrónico o mensajería instantánea.",
+        "Ante una situación sospechosa, detenga la acción y verifique antes de responder."
       ]
     },
     {
@@ -29,24 +43,37 @@
       "title": "WhatsApp Seguro",
       "icon": "📱",
       "description": "Proteja sus conversaciones y evite estafas.",
-      "content": "WhatsApp es una de las plataformas más utilizadas para la comunicación digital.",
+      "content": "WhatsApp se ha convertido en una de las herramientas de comunicación más utilizadas en la vida cotidiana. A través de esta aplicación es posible intercambiar mensajes, fotografías, documentos, audios y realizar llamadas con familiares, amigos y organizaciones. Sin embargo, su popularidad también ha despertado el interés de personas que intentan cometer fraudes utilizando esta plataforma.\n\nUna de las modalidades más frecuentes consiste en hacerse pasar por familiares, entidades bancarias o empresas reconocidas para solicitar información personal o dinero. En algunos casos, los delincuentes pueden intentar obtener el control de una cuenta mediante el robo de códigos de verificación o engañando a los usuarios para que compartan información confidencial.\n\nPara utilizar WhatsApp de forma segura es importante prestar atención a los mensajes inesperados, verificar siempre la identidad de quien se comunica y evitar compartir datos personales, bancarios o códigos de acceso. También resulta recomendable revisar periódicamente la configuración de privacidad y utilizar las herramientas de seguridad que ofrece la aplicación.\n\nAdoptar hábitos responsables al utilizar WhatsApp permite disfrutar de sus beneficios mientras se reducen significativamente los riesgos asociados a las estafas digitales y al acceso no autorizado a las cuentas.",
       "tips": [
-        "Active la verificación en dos pasos.",
-        "No comparta códigos de verificación.",
-        "Desconfíe de mensajes de desconocidos."
+        "Active la verificación en dos pasos para agregar una capa adicional de seguridad.",
+        "No comparta códigos de verificación recibidos por mensaje o llamada.",
+        "Desconfíe de mensajes que soliciten dinero o información personal de manera urgente.",
+        "Verifique la identidad de familiares o conocidos antes de realizar transferencias de dinero.",
+        "Configure adecuadamente las opciones de privacidad de su perfil.",
+        "Evite abrir enlaces enviados por personas desconocidas.",
+        "Mantenga la aplicación actualizada para contar con las últimas mejoras de seguridad.",
+        "Bloquee y reporte contactos sospechosos que intenten obtener información personal.",
+        "No comparta fotografías de documentos personales a través de conversaciones no verificadas.",
+        "Ante cualquier duda, consulte directamente con la persona o institución involucrada utilizando otro medio de contacto."
       ]
-      
     },
     {
       "id": "banking",
       "title": "Banca Electrónica",
       "icon": "🏦",
       "description": "Buenas prácticas para operar con seguridad.",
-      "content":  "La banca electrónica permite realizar operaciones financieras por internet.",
+      "content": "La banca electrónica permite realizar operaciones financieras desde una computadora, teléfono móvil o tableta sin necesidad de concurrir personalmente a una sucursal. Gracias a estos servicios es posible consultar saldos, realizar transferencias, pagar servicios y administrar cuentas de manera rápida y cómoda.\n\nA pesar de sus ventajas, las operaciones bancarias por internet requieren ciertos cuidados para proteger la información personal y financiera. Los delincuentes suelen utilizar correos electrónicos falsos, mensajes engañosos o sitios web fraudulentos para intentar obtener credenciales de acceso y datos bancarios.\n\nPor este motivo, es fundamental ingresar siempre a los servicios bancarios utilizando aplicaciones oficiales o direcciones web verificadas. También es importante evitar realizar operaciones desde dispositivos públicos o redes inalámbricas desconocidas, ya que estas situaciones pueden incrementar los riesgos de seguridad.\n\nLa utilización responsable de la banca electrónica, junto con hábitos de verificación y protección de datos, permite aprovechar los beneficios de la tecnología financiera con mayor tranquilidad y confianza.",
       "tips": [
-        "Utilice conexiones seguras (HTTPS).",
-        "No comparta información bancaria.",
-        "Revise regularmente sus estados de cuenta."
+        "Acceda a la banca electrónica únicamente mediante aplicaciones o sitios oficiales.",
+        "Verifique que la dirección del sitio comience con HTTPS antes de ingresar información.",
+        "No comparta claves, contraseñas ni códigos de seguridad con terceros.",
+        "Evite realizar operaciones bancarias utilizando redes Wi-Fi públicas.",
+        "Revise periódicamente los movimientos de sus cuentas y tarjetas.",
+        "Active las notificaciones de movimientos para detectar actividades inusuales.",
+        "Cierre la sesión al finalizar cada operación bancaria.",
+        "Mantenga actualizado el sistema operativo y el navegador de su dispositivo.",
+        "Desconfíe de mensajes que soliciten actualizar datos bancarios mediante enlaces recibidos por correo o mensajería.",
+        "Comuníquese con su entidad financiera ante cualquier operación que no reconozca."
       ]
     }
   ]
